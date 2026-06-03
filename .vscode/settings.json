@@ -1,0 +1,51 @@
+{
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true
+  },
+  "files.associations": {
+    "SKILL.md": "markdown",
+    ".env.example": "properties",
+    ".env.*.example": "properties"
+  },
+  "markdown.preview.fontSize": 14,
+  "editor.rulers": [100],
+  "editor.formatOnSave": false,
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+  "[yaml]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": ".github/workflows/*.yml"
+  },
+  "cSpell.language": "en,ro",
+  "cSpell.words": [
+    "Anthropic",
+    "Claude",
+    "ChatGPT",
+    "Gemini",
+    "Cowork",
+    "OpenClaw",
+    "ClawHub",
+    "SkillBrain",
+    "SKILL.md",
+    "frontmatter",
+    "kebab-case",
+    "Notion",
+    "Pipedrive",
+    "HubSpot",
+    "automatizări",
+    "automatizare",
+    "lecție",
+    "lecții"
+  ]
+}

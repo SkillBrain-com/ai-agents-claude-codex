@@ -1,0 +1,49 @@
+# ─── Secrete (REGULĂ ABSOLUTĂ: NICIODATĂ în git) ────────────────────
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Credentials, OAuth tokens
+credentials/
+*.pem
+*.key
+*credential*.json
+*token*.json
+
+# ─── Output-uri generate (re-generabile, mari) ──────────────────────
+output/
+areas/*/output/
+flows/*/_state/
+**/__pycache__/
+*.pyc
+.openclaw/
+.cowork-state/
+
+
+# ─── IDE / OS noise ─────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+*.swo
+*~
+
+# ─── VSCode personal overrides (păstrăm shared) ─────────────────────
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/*.code-workspace
+
+# ─── Node / Python ───────────────────────────────────────────────────
+node_modules/
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# ─── Audit personal sensibil (anonimizează înainte de commit) ───────
+audits/*-job-log.md
+audits/*-personal-log.md
+# Lasă DOAR template-urile și harta finală anonimizată
+!audits/_template-*.md
+!audits/*automation-map.md

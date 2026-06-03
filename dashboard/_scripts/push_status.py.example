@@ -1,0 +1,99 @@
+#!/usr/bin/env python3
+"""Push automation status to Notion dashboard.
+
+Usage:
+    python3 push_status.py --name morning-brief --status healthy --impact 1.75
+
+Requires:
+    NOTION_TOKEN  in .env (Internal Integration Token from notion.so/profile/integrations)
+    NOTION_DATABASE_ID  in .env (from database URL)
+
+The dashboard MUST be shared with your Notion integration first.
+
+Copy this file to push_status.py (without .example) and customize.
+"""
+from __future__ import annotations
+
+import argparse
+import os
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+import requests  # pip install requests
+from dotenv import load_dotenv  # pip install python-dotenv
+
+# Load .env from repo root
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
+
+NOTION_TOKEN = os.environ.get("NOTION_TOKEN", "").strip()
+NOTION_DATABASE_ID = os.environ.get("NOTION_DATABASE_ID", "").strip()
+
+if not NOTION_TOKEN or not NOTION_DATABASE_ID:
+    sys.stderr.write("✗ NOTION_TOKEN sau NOTION_DATABASE_ID lipsesc din .env\n")
+    sys.exit(2)
+
+API = "https://api.notion.com/v1"
+HEADERS = {
+    "Authorization": f"Bearer {NOTION_TOKEN}",
+    "Notion-Version": "2025-09-03",
+    "Content-Type": "application/json",
+}
+
+STATUS_OPTIONS = {
+    "healthy": "🟢 Healthy",
+    "warning": "🟡 Warning",
+    "down": "🔴 Down",
+    "paused": "⚪ Paused",
+}
+
+
+def find_row(name: str) -> str | None:
+    """Return Notion page ID for the row with given Name, or None."""
+    r = requests.post(
+        f"{API}/databases/{NOTION_DATABASE_ID}/query",
+        headers=HEADERS,
+        json={"filter": {"property": "Name", "title": {"equals": name}}},
+        timeout=30,
+    )
+    r.raise_for_status()
+    results = r.json().get("results", [])
+    return results[0]["id"] if results else None
+
+
+def update_row(page_id: str, status: str, impact: float, notes: str | None) -> None:
+    props = {
+        "Status": {"select": {"name": STATUS_OPTIONS[status]}},
+        "Last successful run": {
+            "date": {"start": datetime.now(timezone.utc).isoformat()}
+        },
+        "Impact h/wk": {"number": impact},
+    }
+    if notes:
+        props["Notes"] = {"rich_text": [{"text": {"content": notes[:1900]}}]}
+    r = requests.patch(
+        f"{API}/pages/{page_id}", headers=HEADERS, json={"properties": props}, timeout=30
+    )
+    r.raise_for_status()
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--name", required=True, help="Automation name (must match Notion row Name)")
+    ap.add_argument("--status", required=True, choices=list(STATUS_OPTIONS), help="Status keyword")
+    ap.add_argument("--impact", type=float, default=0.0, help="Hours saved per week")
+    ap.add_argument("--notes", default=None, help="Optional notes (incidents, observations)")
+    args = ap.parse_args()
+
+    page_id = find_row(args.name)
+    if not page_id:
+        sys.stderr.write(f"✗ Row not found in Notion for name='{args.name}'\n")
+        return 2
+
+    update_row(page_id, args.status, args.impact, args.notes)
+    print(f"✓ Updated Notion row '{args.name}' → {STATUS_OPTIONS[args.status]}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,68 @@
+name: Validate SKILL.md frontmatter
+
+on:
+  pull_request:
+    paths:
+      - '**/SKILL.md'
+  push:
+    branches: [main]
+    paths:
+      - '**/SKILL.md'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: pip install pyyaml
+
+      - name: Validate every SKILL.md
+        run: |
+          python3 <<'PY'
+          import re, sys, yaml
+          from pathlib import Path
+
+          errors = []
+          for path in Path('.').rglob('SKILL.md'):
+              if any(p.startswith('.') for p in path.parts):
+                  continue
+              text = path.read_text(encoding='utf-8')
+              m = re.match(r'^---\n(.*?)\n---', text, re.S)
+              if not m:
+                  errors.append(f"{path}: missing frontmatter (--- ... ---)")
+                  continue
+              try:
+                  fm = yaml.safe_load(m.group(1))
+              except yaml.YAMLError as e:
+                  errors.append(f"{path}: invalid YAML — {e}")
+                  continue
+              if not isinstance(fm, dict):
+                  errors.append(f"{path}: frontmatter is not a dict")
+                  continue
+              name = fm.get('name', '')
+              desc = fm.get('description', '')
+              if not name:
+                  errors.append(f"{path}: missing `name`")
+              elif len(name) > 64:
+                  errors.append(f"{path}: name '{name}' exceeds 64 chars")
+              elif not re.match(r'^[a-z0-9-]+$', name):
+                  errors.append(f"{path}: name '{name}' must be kebab-case (lowercase + digits + hyphens)")
+              if not desc:
+                  errors.append(f"{path}: missing `description`")
+              elif len(desc) > 1024:
+                  errors.append(f"{path}: description exceeds 1024 chars ({len(desc)})")
+
+          if errors:
+              print("❌ Validation failed:")
+              for e in errors:
+                  print(f"  - {e}")
+              sys.exit(1)
+          print("✅ All SKILL.md files have valid frontmatter")
+          PY
