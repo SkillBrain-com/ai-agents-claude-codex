@@ -50,7 +50,7 @@ Scrie textul ÎNAINTE de înregistrare. Citește-l de pe ecran (al doilea monito
 # Script demo M5.5 — {NUMELE TĂU}
 
 Hi, sunt {NUME} și v-arăt cele 3 automation pe care le-am construit
-în 8 săptămâni la AI pentru Viața Ta.
+în 8 săptămâni la ai-agents-claude-codex.
 
 [PROBLEM — 30s]
 Înainte de curs, pierdeam ~7h pe săptămână pe {DESCRIE 3 task-uri repetitive}.
@@ -156,7 +156,7 @@ Demo-ul tău e ESENȚIAL pentru:
 
 Template LinkedIn:
 ```
-🤖 Tocmai am terminat 8 săpt de "AI pentru Viața Ta" la SkillBrain.
+🤖 Tocmai am terminat 8 săpt de "ai-agents-claude-codex" la SkillBrain.
 
 Am construit 3 agenți AI care economisesc ~7h/săpt pe task-uri repetitive:
   • {Automation 1} — {ce face}

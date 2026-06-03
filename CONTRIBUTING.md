@@ -1,6 +1,6 @@
 # Contributing
 
-> Acest repo e **template-ul de start** pentru cursanții *AI pentru Viața Ta*. Cum contribui depinde de rolul tău.
+> Acest repo e **template-ul de start** pentru cursanții *ai-agents-claude-codex*. Cum contribui depinde de rolul tău.
 
 ---
 

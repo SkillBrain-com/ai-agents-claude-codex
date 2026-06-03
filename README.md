@@ -1,4 +1,4 @@
-# AI pentru Viața Ta
+# ai-agents-claude-codex
 
 > **Curs SkillBrain** — Automatizează-ți viața și locul de muncă folosind Claude, ChatGPT, Gemini, Claude Cowork și OpenClaw. Fără cod.
 
@@ -10,7 +10,7 @@
 
 ## Ce este acest repo
 
-Acesta e **punctul tău de plecare** pentru cursul *AI pentru Viața Ta*. Conține structura de foldere recomandată + un skill exemplu funcțional pe care îl duplici și-l personalizezi pe parcursul cursului.
+Acesta e **punctul tău de plecare** pentru cursul *ai-agents-claude-codex*. Conține structura de foldere recomandată + un skill exemplu funcțional pe care îl duplici și-l personalizezi pe parcursul cursului.
 
 La finalul celor 8 săptămâni vei avea în acest repo:
 - ✅ **3 automatizări** rulând autonom (1 personală, 1 de la job, 1 integrată)
