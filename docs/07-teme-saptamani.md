@@ -1,8 +1,8 @@
 # 07 — Teme săptămânale
 
-> Fiecare săptămână are o **temă** — un titlu scurt, emoțional, care răspunde la întrebarea ascunsă a cursantului. Folosește-le ca anchor în email-uri săptămânale, slide-uri de kickoff și reflecții personale.
+> Fiecare săptămână are o **temă** care comprimă obiectivul săptămânii într-un titlu scanabil. Folosește-le în comunicările cu cohorta (email, slide, calendar) și ca anchor pentru tracking-ul progresului.
 
-**Naming convention:** `W{M}.{săpt-din-modul}` — ex: `W4.2` = a doua săptămână din Modulul 4. Săptămânile cu un singur modul scurt (M1, M2, M3) sunt doar `W1`, `W2`, `W3`.
+**Naming convention:** `W{M}.{săpt-din-modul}` — ex: `W4.2` = a doua săptămână din Modulul 4. Săptămânile cu modul scurt sunt doar `W1`, `W2`, `W3`.
 
 ---
 
@@ -10,193 +10,240 @@
 
 | Cod | Săpt | Tema | Modul |
 |---|---|---|---|
-| **W1**   | 1 | 🚀 Trezește primul agent              | M1 — Setup rapid |
-| **W2**   | 2 | 🗺️ Hartă pe propria viață             | M2 — Research |
-| **W3**   | 3 | 🗣️ Limbajul agenților                 | M3 — Concepte tehnice |
-| **W4.1** | 4 | 🏠 Agentul în casa ta                 | M4 — OpenClaw foundations |
-| **W4.2** | 5 | 🛡️ Când lucrurile pică                | M4 — OpenClaw deepen |
-| **W4.3** | 6 | 🧩 Capstone: 1 skill, toate trucurile | M4 — OpenClaw integration |
-| **W5.1** | 7 | 🏗️ Prima automation reală             | M5 — Build sprint 1 |
-| **W5.2** | 8 | 🎤 Ship & demo: identitate nouă       | M5 — Build sprint 2 + demo |
+| **W1**   | 1 | Setup mediu și primul skill custom              | M1 — Setup rapid |
+| **W2**   | 2 | Audit procese și hartă de automatizări          | M2 — Research |
+| **W3**   | 3 | Prompting avansat și orchestrare multi-agent    | M3 — Concepte tehnice |
+| **W4.1** | 4 | OpenClaw: setup local și primul Task Flow       | M4 — Foundations |
+| **W4.2** | 5 | Connectors, error handling, long-doc reasoning  | M4 — Deepen |
+| **W4.3** | 6 | Capstone OpenClaw integrat                      | M4 — Integration |
+| **W5.1** | 7 | Production build — automatizarea #1             | M5 — Sprint 1 |
+| **W5.2** | 8 | Integrare, dashboard și demo final              | M5 — Sprint 2 |
 
 ---
 
-## W1 — 🚀 Trezește primul agent
+## W1 — Setup mediu și primul skill custom
 
 **Modul:** M1 — Setup rapid
-**Sub-titlu:** Stack-ul tău funcționează
-**Întrebarea ascunsă:** „Voi reuși eu, non-tehnic?"
-**Tema răspunde cu:** „DA — uite, primul skill rulează."
+**Lecții:** L1.0, L1.1, L1.2, L1.3 (107 min)
+**Effort estimat:** ~5h
 
-**Ce simți la final:**
-> „Wow, am pornit ceva care lucrează singur."
+**Outcome măsurabil:**
+- VSCode + extensia Claude Code funcționale
+- Cele 3 conturi AI (Claude / ChatGPT / Gemini) cu custom instructions identice
+- Primul SKILL.md custom invocat cu success
 
-**Deliverable:** primul SKILL.md custom funcțional în VSCode + cele 3 conturi AI (Claude / ChatGPT / Gemini) configurate cu custom instructions identice.
+**Deliverable:** repo personal clonat, `.env` configurat, primul skill custom commit-uit pe GitHub.
 
-**Lecții acoperite:** L1.0, L1.1, L1.2, L1.3 (107 min)
+**Activități cheie:**
+- Day 1 walkthrough complet (vezi [03-cum-incep.md](03-cum-incep.md))
+- Test stack pe 3 task-uri identice (sumarizare / email / factual cu sursă)
+- Mini-pipeline manual research → sinteză → salvare
 
 ---
 
-## W2 — 🗺️ Hartă pe propria viață
+## W2 — Audit procese și hartă de automatizări
 
 **Modul:** M2 — Research
-**Sub-titlu:** AI-ul te-a auditat
-**Întrebarea ascunsă:** „Ce să automatizez de fapt?"
-**Tema răspunde cu:** „Harta îți spune exact."
+**Lecții:** L2.1, L2.2, L2.3, L2.4 (106 min)
+**Effort estimat:** ~6h
 
-**Ce simți la final:**
-> „Văd PATTERN-uri pe care nu le-am văzut singur."
+**Outcome măsurabil:**
+- Log de timp 7 zile complet (personal + job)
+- Minim 8 procese candidate identificate de agenții de audit
+- 3 procese prioritizate prin matricea impact × fezabilitate
 
-**Deliverable:** Hartă personalizată cu minim 8 procese candidate + 3 prioritizate prin impact × fezabilitate, gata de build în M5.
+**Deliverable:** [audits/{data}_automation-map.md](../audits/) — harta finală care devine input pentru M5.
 
-**Lecții acoperite:** L2.1, L2.2, L2.3, L2.4 (106 min)
-
-**Activitate paralelă toată săptămâna:** logging de timp 5-7 min/zi × 7 zile.
+**Activități cheie:**
+- Logging zilnic 5-7 min (paralel cu lecțiile)
+- Rularea agenților de audit (personal + job) cu prompt-urile oficiale
+- Peer review pe harta finală (sesiune live săpt 2, sâmbătă)
 
 ---
 
-## W3 — 🗣️ Limbajul agenților
+## W3 — Prompting avansat și orchestrare multi-agent
 
 **Modul:** M3 — Concepte tehnice
-**Sub-titlu:** Stăpânești prompting + triggers
-**Întrebarea ascunsă:** „De ce AI răspunde inconsistent?"
-**Tema răspunde cu:** „Pentru că nu i-ai dat structura corectă."
+**Lecții:** L3.1, L3.2, L3.3, L3.4, L3.5 (123 min)
+**Effort estimat:** ~7h
 
-**Ce simți la final:**
-> „Pot vorbi cu AI așa cum vorbesc cu un coleg — clar și predictibil."
+**Outcome măsurabil:**
+- Înțelegere prompt stack (role / context / memory / few-shot)
+- Diferențiere scheduled vs event-driven triggers
+- Pattern orchestrator + 2 sub-skills implementat
 
-**Deliverable:** scheduled Claude Cowork task care rulează 3 zile fără intervenție + orchestrator simplu cu 2 skills în secvență.
+**Deliverable:**
+- Scheduled Claude Cowork task care rulează 3 zile fără intervenție manuală
+- Mini-orchestrator cu 2 skills în secvență
 
-**Lecții acoperite:** L3.1, L3.2, L3.3, L3.4, L3.5 (123 min)
-
----
-
-## W4.1 — 🏠 Agentul în casa ta
-
-**Modul:** M4 — OpenClaw foundations
-**Sub-titlu:** OpenClaw rulează local
-**Întrebarea ascunsă:** „Depind de Anthropic + OpenAI mereu?"
-**Tema răspunde cu:** „Nu — ai propriul agent acasă."
-
-**Ce simți la final:**
-> „Am putere — nu mai depind de servicii cloud."
-
-**Deliverable:** OpenClaw instalat local + primul Task Flow cu 4 pași end-to-end (classify → fetch → reason → reply).
-
-**Lecții acoperite:** L4.1, L4.2, L4.3 (73 min)
+**Activități cheie:**
+- Rescriere prompt nestructurat ca few-shot cu 3 exemple în `<example>` tags
+- Setup primul scheduled task (briefing de dimineață 07:30)
+- Build orchestrator research-then-synthesize
 
 ---
 
-## W4.2 — 🛡️ Când lucrurile pică
+## W4.1 — OpenClaw: setup local și primul Task Flow
 
-**Modul:** M4 — OpenClaw deepen
-**Sub-titlu:** Reliability + long-doc reasoning
-**Întrebarea ascunsă:** „Ce fac când pică API-ul?"
-**Tema răspunde cu:** „Construiești retry + fallback. Pică elegant."
+**Modul:** M4 — Foundations
+**Lecții:** L4.1, L4.2, L4.3 (73 min)
+**Effort estimat:** ~5h
 
-**Ce simți la final:**
-> „Flow-urile mele supraviețuiesc, nu se mai opresc silent."
+**Outcome măsurabil:**
+- OpenClaw instalat local (Node 24, gateway pornit, prim chat OK)
+- Înțelegere arhitectură: Skills + Tools + ClawHub
+- Primul Task Flow cu 4 steps (classify → fetch → reason → reply)
 
-**Deliverable:** flow cu error handling explicit (retry × 2 + fallback la owner-alert) + skill care procesează un PDF de 100+ pagini cu Claude.
+**Deliverable:** flow OpenClaw funcțional în `flows/{nume}/` cu state tracking verificabil prin `openclaw tasks flow show`.
 
-**Lecții acoperite:** L4.4, L4.5 (53 min)
-
----
-
-## W4.3 — 🧩 Capstone: 1 skill, toate trucurile
-
-**Modul:** M4 — OpenClaw integration
-**Sub-titlu:** Mini-project dress-rehearsal
-**Întrebarea ascunsă:** „Pot eu să combin toate astea?"
-**Tema răspunde cu:** „Da — uite, l-ai făcut singur."
-
-**Ce simți la final:**
-> „Pot face ANY skill complet acum. Sunt gata pentru production."
-
-**Deliverable:** capstone OpenClaw — 1 flow care folosește **2 connectors ClawHub + Claude long-doc + model routing + retry/fallback complet**.
-
-**Lecții acoperite:** L4.6 (25 min) + capstone project (5-6h build)
-
-**Capstone brief — alege unul:**
-1. Email inbox triage (clasifică + auto-reply + log Notion)
-2. Meeting recap (transcript → summary + actions → Slack)
-3. Content radar (search 3 surse → sumarizare → propune draft post)
+**Activități cheie:**
+- Install + autentificare API
+- Vetting + install 2 skills din ClawHub (verified)
+- Build flow 4 pași cu inputs reali
 
 ---
 
-## W5.1 — 🏗️ Prima automation reală
+## W4.2 — Connectors, error handling, long-doc reasoning
 
-**Modul:** M5 — Build sprint 1
-**Sub-titlu:** Production day
-**Întrebarea ascunsă:** „Pot eu să ship ceva real?"
-**Tema răspunde cu:** „Da — #1 rulează acum, fără mâna ta."
+**Modul:** M4 — Deepen
+**Lecții:** L4.4, L4.5 (53 min)
+**Effort estimat:** ~6h
 
-**Ce simți la final:**
-> „Asta e LIVE. Rulează FĂRĂ MINE. E al meu."
+**Outcome măsurabil:**
+- Pattern retry × N + backoff exponențial + fallback implementat
+- 3-state error model (success / retry-able / hard-fail) aplicat
+- Skill care procesează un PDF de 100+ pagini cu Claude
 
-**Deliverable:** Automatizarea #1 din hartă LIVE — spec → build → verify → deploy. Plus spec ready pentru #2.
+**Deliverable:**
+- Refactor flow-ul din W4.1 cu error handling complet pe fiecare step
+- Skill contract-reviewer (sau echivalent) care rulează pe document real
 
-**Lecții acoperite:** L5.1, L5.2 (50 min) + 6-7h production build
-
----
-
-## W5.2 — 🎤 Ship & demo: identitate nouă
-
-**Modul:** M5 — Build sprint 2 + demo
-**Sub-titlu:** 3 automation + dashboard + comunitate
-**Întrebarea ascunsă:** „Cine sunt eu acum?"
-**Tema răspunde cu:** „Constructor de agenți AI."
-
-**Ce simți la final:**
-> „Sunt cineva care construiește agenți AI. Asta a devenit o parte din mine."
-
-**Deliverable:** Automation #2 + #3 LIVE și integrate sub un dashboard unificat + screencast 2 min + prezentare publică cu 1 round de feedback și iterație.
-
-**Lecții acoperite:** L5.3, L5.4, L5.5 (85 min) + 6-8h build + demo
+**Activități cheie:**
+- Test deliberat cu eroare simulată (429) — verifică retry-ul
+- Optimizare context budget pentru long-doc (~70k tokens efectivi din 200k)
+- Mid-build clinic (sesiune live săpt 5, miercuri seara)
 
 ---
 
-## Arc complet — transformarea în 8 săptămâni
+## W4.3 — Capstone OpenClaw integrat
 
-```
-W1     W2     W3     W4.1    W4.2    W4.3    W5.1    W5.2
-🚀  →  🗺️  →  🗣️  →  🏠  →   🛡️  →   🧩  →   🏗️  →   🎤
+**Modul:** M4 — Integration
+**Lecții:** L4.6 (25 min) + capstone project
+**Effort estimat:** ~6h
 
-Trezesc → Auditez → Vorbesc → Posed → Reziliez → Integrez → Ship → Sunt
-   ↓         ↓        ↓        ↓        ↓          ↓        ↓     ↓
- Setup   Self-     Skill    Local   Robust   Synthesis   Real  Identity
-        knowledge  craft    power
-```
+**Outcome măsurabil:**
+- Implementare model routing (3 modele într-un singur flow)
+- Capstone OpenClaw care combină tot ce s-a învățat în M4
+
+**Deliverable:** capstone — 1 flow OpenClaw care:
+1. Folosește **2 connectors ClawHub** (vetted)
+2. Are **minim un step cu Claude pe long-doc / reasoning**
+3. Implementează **model routing intenționat** (Claude / Gemini / ChatGPT per step)
+4. Are **retry + fallback** pe minim un step critic
+5. Salvează **state** verificabil
+
+**Scenarii capstone (alege unul):**
+- Email inbox triage (classify + auto-reply + log Notion)
+- Meeting recap (transcript → summary + action items → Slack)
+- Content radar (search 3 surse → sumarizare → propune draft)
+
+**Activitate cheie:** capstone show & tell — fiecare prezintă 3 min (repetiție pentru demo M5.5).
+
+---
+
+## W5.1 — Production build — automatizarea #1
+
+**Modul:** M5 — Sprint 1
+**Lecții:** L5.1, L5.2 (50 min)
+**Effort estimat:** ~7h
+
+**Outcome măsurabil:**
+- Selecție finală 3 automation din hartă (commit public în comunitate)
+- Automatizarea #1 LIVE — rulează autonom cu input-uri reale
+
+**Deliverable:**
+- Public commitment cu cele 3 automation + dată estimată de finalizare
+- Automation #1 în production (spec → build → verify → deploy complet)
+- Spec ready pentru #2
+
+**Activități cheie:**
+- Re-evaluare hartă M2 cu lentila OpenClaw (ce skills ClawHub acoperă deja 80%?)
+- Build sprint focusat pe #1 (4 etape: spec, build, verify, deploy)
+- Build standup midweek (sesiune live săpt 7, miercuri)
+
+---
+
+## W5.2 — Integrare, dashboard și demo final
+
+**Modul:** M5 — Sprint 2
+**Lecții:** L5.3, L5.4, L5.5 (85 min)
+**Effort estimat:** ~8h
+
+**Outcome măsurabil:**
+- Automatizarea #2 LIVE și integrată cu #1 (chain / shared state / event)
+- Automatizarea #3 LIVE
+- Dashboard unificat în Notion cu status + ultima rulare + erori + impact
+- Screencast 2 min de demo prezentat public
+
+**Deliverable:**
+- 3 automation rulând autonom
+- Dashboard live cu alerting setat
+- Screencast publicat în comunitate cu 3 cereri specifice de feedback
+- 1 round de iterație post-feedback
+
+**Activități cheie:**
+- Integration pattern: alegere între chain / shared state / event queue
+- Build dashboard Notion + script de status push (vezi [dashboard/](../dashboard/))
+- Demo day live (sesiune săpt 8, vineri seara)
 
 ---
 
 ## Cum folosești temele
 
-### În email-uri săptămânale către cohortă
-Subject: `Săpt {N}: {emoji} {tema}` — ex: `Săpt 3: 🗣️ Limbajul agenților`
+### În comunicarea cu cohorta
+
+**Email săptămânal — subject:**
+```
+Săpt {N}: {tema}
+```
+
+Exemplu: `Săpt 3: Prompting avansat și orchestrare multi-agent`
 
 ### Pe slide-ul de kickoff al fiecărui live call
-Slide #1 = tema săptămânii + emoji + sub-titlu.
 
-### Ca anchor pentru reflecție
-La final de săptămână, întrebare în Discord/Slack: *„Pentru tine, ce-a însemnat «{tema}»?"*
+Slide #1 = `{cod} — {tema}` + outcome măsurabil.
+
+### Ca anchor pentru tracking progres
+
+În Notion dashboard al cohortei, fiecare student are coloane `W1` … `W5.2` cu status:
+- ✅ Completed (deliverable bifat)
+- 🟡 In progress
+- ⚪ Not started
+
+Ratele de completion per săptămână = indicator de health al cohortei.
 
 ### Pe certificatul final
-Timeline vizual cu 8 hexagoane (1 per temă), marchezi cele finalizate. La final 8/8 → certificat „Constructor de agenți AI".
 
-### În jurnalul personal al cursantului
+Timeline cu 8 entries (W1 → W5.2), bifate cele finalizate. Certificat „AI Agents — Claude & Codex" emis la 8/8.
+
+### În jurnalul cursantului (opțional)
+
 Template săptămânal:
+
 ```
-## Săpt {N} — {tema}
+## {cod} — {tema}
 
-### Ce am simțit la început
-
-
-### Ce am descoperit
-
+### Outcome propus
+{copy din docs/07-teme-saptamani.md}
 
 ### Ce am livrat
 
 
-### Ce-aș face diferit
+### Ce a mers neașteptat de bine
+
+
+### Ce m-a blocat și cum am ieșit
+
+
+### Ce schimb la abordarea mea pentru săpt următoare
 ```
